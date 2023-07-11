@@ -1,4 +1,4 @@
-/**
+/*
  * This file provides helper functions & is NOT intended to be run as a script.
  */
 
@@ -169,9 +169,9 @@ export function cleanUp() {
   shell.rm('-f', 'exercise-package.json.sha');
 }
 
-// These packages will be skipped while performing checksum. In other words,
-// these packages are only interesting for maintaining this repository and not
-// for the student.
+/* These packages will be skipped while performing checksum. In other words,
+   these packages are only interesting for maintaining this repository and not
+   for the student.*/
 const SKIP_PACKAGES_FOR_CHECKSUM = [
   'shelljs',
   '@babel/node',
@@ -305,11 +305,11 @@ export function prepare(assignment) {
 
     // Enable tests
     //
-    // This purposefully does not replace describe.skip or test.skip, so we can
-    // have test cases that are _always_ skipped, including CI. Use case?
-    // - platform dependent tests
-    // - test cases that don't yet work with our solution
-    //
+    /* This purposefully does not replace describe.skip or test.skip, so we can
+       have test cases that are _always_ skipped, including CI. Use case?
+       - platform dependent tests
+       - test cases that don't yet work with our solution*/
+    
     shell
       .sed(/x(test|it)\(/, 'test(', specFileDestination)
       .to(specFileDestination);
